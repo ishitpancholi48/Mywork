@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="action_school_faculty_view" model="ir.actions.act_window">
+            <field name="name">School Faculty View</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">school.faculty</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_fave">
+                    Records School Faculty
+                </p>
+            </field>
+        </record>
+
+        <record id="school_faculty_form_view" model="ir.ui.view">
+            <field name="name">School Faculty Form</field>
+            <field name="model">school.faculty</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <activity string="Faculty ID Numbers">
+                            <templates>
+                                <div t-name="activity-box">
+                                    <div>
+                                        <h1>
+                                            <field name="faculty_id_no" decoration-bf="20" style="font-size:30px" readonly="1"/>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </templates>
+                        </activity>
+                        <field name="faculty_image" widget="image" class="oe_avatar"/>
+                        <group>
+                            <group>
+                                <field name="faculty_name"/>
+                                <field name="faculty_gender"/>
+                                <field name="faculty_mobile_number"/>
+                                <field name="faculty_subject_tags" widget="many2many_tags"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="school_faculty_tree_view" model="ir.ui.view">
+            <field name="name">School Faculty Tree View</field>
+            <field name="model">school.faculty</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="faculty_id_no"/>
+                    <field name="faculty_name"/>
+                    <field name="faculty_gender"/>
+                    <field name="faculty_mobile_number"/>
+                    <field name="faculty_subject_tags" widget="many2many_tags"/>
+                    <field name="faculty_image" widget="image" class="oe_avatar"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

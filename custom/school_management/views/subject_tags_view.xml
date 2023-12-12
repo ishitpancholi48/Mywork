@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="action_subject_tags_view" model="ir.actions.act_window">
+            <field name="name">Subject Tags View</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">subject.tags</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_fave">
+                     New Subject Record
+                </p>
+            </field>
+        </record>
+
+        <record id="subject_tags_form_view" model="ir.ui.view">
+            <field name="name">Subject Tags Form View</field>
+            <field name="model">subject.tags</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="faculty_subject"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="subject_tags_tree_view" model="ir.ui.view">
+            <field name="name">Subject Tags Tree View</field>
+            <field name="model">subject.tags</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="faculty_subject"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

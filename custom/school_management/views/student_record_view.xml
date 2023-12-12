@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="action_student_record_view" model="ir.actions.act_window">
+            <field name="name">Student Record View</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">student.record</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_fave">
+                    Create New Student Record
+                </p>
+            </field>
+        </record>
+
+        <record id="student_record_form_view" model="ir.ui.view">
+            <field name="name">Student Record Form View</field>
+            <field name="model">student.record</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <activity string="Student Records">
+                            <templates>
+                                <div t-name="activity-box">
+                                    <div>
+                                        <field name="student_record_number" decoration-bf="20" style="font-size:30px"/>
+                                    </div>
+                                </div>
+                            </templates>
+                        </activity>
+                        <group>
+                            <group>
+                                <field name="student_name"/>
+                                <field name="student_age"/>
+                                <field name="student_gender"/>
+                                <field name="student_dob"/>
+                            </group>
+                            <group>
+                                <field name="student_contact_number"/>
+                                <field name="student_address"/>
+                                <field name="student_city"/>
+                                <field name="student_class"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="student_record_tree_view" model="ir.ui.view">
+            <field name="name">Student Record Tree View</field>
+            <field name="model">student.record</field>
+            <field name="arch" type="xml">
+                <tree string="Student Record">
+                    <field name="student_record_number"/>
+                    <field name="student_name"/>
+                    <field name="student_age"/>
+                    <field name="student_gender"/>
+                    <field name="student_dob"/>
+                    <field name="student_contact_number"/>
+                    <field name="student_address"/>
+                    <field name="student_city"/>
+                    <field name="student_class"/>
+                    <button type="object" string="Delete Record" name="unlink" class="btn-primary"/>
+                </tree>
+            </field>
+        </record>
+
+        <menuitem id="student_record_menu"
+                  name="School Management"
+                  action="action_student_record_view"
+        />
+        <menuitem id="student_list"
+                  name="Student Record"
+                  action="action_student_record_view"
+                  parent="student_record_menu"
+        />
+        <menuitem id="student_record_list"
+                  name="Student List"
+                  action="action_student_list_view"
+                  parent="student_list"
+        />
+        <menuitem id="student_fees"
+                  name="Student Fees"
+                  action="action_student_record_view"
+                  parent="student_record_menu"
+        />
+        <menuitem id="student_fees_sub"
+                  name="Fees"
+                  action="action_student_fees_view"
+                  parent="student_fees"
+        />
+        <menuitem id="student_fees_dtatus"
+                  name="Student Fees Status"
+                  action=""
+                  parent="student_fees"
+        />
+        <menuitem id="faculty_menu"
+                  name="Faculty"
+                  action="action_student_record_view"
+                  parent="student_record_menu"
+        />
+        <menuitem id="faculty_sub_menu"
+                  name="Faculty Information"
+                  action="action_school_faculty_view"
+                  parent="faculty_menu"
+        />
+    </data>
+</odoo>

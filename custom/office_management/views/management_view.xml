@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="action_office_management" model="ir.actions.act_window">
+            <field name="name">Office_management</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">office.staff</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_fave">
+                    Create New Record
+                </p>
+            </field>
+        </record>
+        <!--Tree view start-->
+        <record id="office_staff_tree" model="ir.ui.view">
+            <field name="name">office.staff.tree</field>
+            <field name="model">office.staff</field>
+            <field name="arch" type="xml">
+                <tree string="Office Staff">
+                    <field name="name"/>
+                    <field name="partner_id"/>
+                    <field name="age"/>
+                    <field name="dob"/>
+                    <field name="mobile"/>
+                    <field name="email"/>
+                    <field name="gender"/>
+                    <field name="city"/>
+                    <field name="boolean_checkbox"/>
+                    <field name="state"/>
+                    <field name="many2many"/>
+                    <button type="object" string="Delete" name="unlink" class="btn-primary"/>
+                </tree>
+            </field>
+        </record>
+        <!--tree view end-->
+
+        <!--form view start-->
+        <record id="office_staff_form" model="ir.ui.view">
+            <field name="name">office.staff.form</field>
+            <field name="model">office.staff</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button id="button_draft" name="action_draft" string="Draft" class="btn-primary"
+                                type="object"/>
+                        <button id="button_confirm" name="action_confirm" string="Confirm" class="btn-primary"
+                                type="object"/>
+                        <button id="button_done" name="action_done" string="Done" class="btn-primary"
+                                type="object" message="Record Saved"/>
+                        <button id="button_cancel" name="action_cancel" string="Cancel" class="btn-secondary"
+                                type="object"/>
+                        <button id="button_check_orm" name="check_orm" string="CheckOrm" class="btn-primary"
+                                type="object"/>
+                        <field name="state" widget="statusbar" options="{'clickable':'1'}"
+                               statusbar_visible="draft,done,confirm,cancel"/>
+                        <button name="main_method" string="Check Record" class="btn-primary" type="object"/>
+                        <button name="wiz_open" string="Update Info"
+                                type="object" title="College University Wizard  " class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"
+                                       attrs="{'readonly':[('state', '=', 'confirm')],'invisible':[('state','=','confirm')]}"/>
+                                <field name="partner_id"/>
+                                <field name="age"/>
+                                <field name="dob"/>
+                                <field name="mobile"/>
+                                <field name="many2many" widget="many2many_tags"/>
+                            </group>
+                            <group>
+                                <field name="email"/>
+                                <field name="city"/>
+                                <field name="country"/>
+                                <field name="country_id"/>
+                                <field name="gender"/>
+                                <field name="boolean_checkbox"/>
+                            </group>
+                            <group>
+                                <button name="button_action" string="CheckButton" type="object" class="oe_highlight"/>
+                                <button name="%(office_management.action_office_management)d" string="Action Button"
+                                        type="action" class="oe_highlight" confirm="are you sure open employee action"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!--from view end-->
+        <menuitem id="staff_menu"
+                  name="Employee Management"
+                  action="action_office_management"
+        />
+        <menuitem id="staff_sub_menu"
+                  name="Employee"
+                  action="action_office_management"
+                  parent="staff_menu"
+        />
+        <menuitem id="office_details"
+                  name="details"
+                  action="action_office_details"
+                  parent="staff_sub_menu"
+        />
+        <menuitem id="company_sub_service"
+                  name="Services"
+                  action="action_office_management"
+                  parent="staff_menu"
+        />
+        <menuitem id="company_service"
+                  name="query"
+                  action="action_company_service"
+                  parent="company_sub_service"
+        />
+        <menuitem id="new_sub_employee"
+                  name="NewEmployee"
+                  action="action_office_management"
+                  parent="staff_menu"
+        />
+        <menuitem id="office_employee"
+                  name="OfficeEmployee"
+                  action="action_new_employee"
+                  parent="new_sub_employee"
+        />
+
+
+    </data>
+</odoo>
+

@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_office_staff,office.staff,model_office_staff,base.group_user,1,1,1,1
+access_office_details,office.details,model_office_details,base.group_user,1,1,1,1
+access_company_service,company.service,model_company_service,base.group_user,1,1,1,1
+access_abstract_model,abstract.model,model_abstract_model,base.group_user,1,1,1,1
+access_new_employee,new.employee,model_new_employee,base.group_user,1,1,1,1
+
+
+access_office_staff_wizard,office.staff.wizard,model_office_staff_wizard,base.group_user,1,1,1,1

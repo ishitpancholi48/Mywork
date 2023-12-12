@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_student_fees_view" model="ir.actions.act_window">
+            <field name="name">Student Fees View</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">student.fees</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_fave">
+                    Create Receipt Student Fees
+                </p>
+            </field>
+        </record>
+
+        <record id="student_fees_form_view" model="ir.ui.view">
+            <field name="name">Student Fees Form View</field>
+            <field name="model">student.fees</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button id="paid_button" name="action_paid" string="Paid" type="object"
+                                class="btn-primary"/>
+                        <button id="unpaid_button" name="action_unpaid" string="Unpaid" type="object"
+                                class="btn-danger"/>
+                        <field name="fees_status" widget="statusbar" options="{'clickable':'1'}" statusbar_visible="paid,unpaid"/>
+                    </header>
+                    <sheet>
+                        <activity string="Student Receipts">
+                            <templates>
+                                <div t-name="activity-box">
+                                    <div>
+                                        <field name="receipt_seq" decoration-bf="20" style="font-size:30px"/>
+                                    </div>
+                                </div>
+                            </templates>
+                        </activity>
+                        <group>
+                            <group>
+                                <field name="student_id"/>
+                                <field name="student_fees"/>
+                            </group>
+                            <group>
+                                <field name="student_tution_fees"/>
+                                <field name="total_fees"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="student_fees_tree_view" model="ir.ui.view">
+            <field name="name">Student Fees Tree View</field>
+            <field name="model">student.fees</field>
+            <field name="arch" type="xml">
+                <tree string="Student Fees Record" decoration-success="fees_status=='paid'"
+                      decoration-warning="fees_status=='unpaid'">
+                    <field name="receipt_seq"/>
+                    <field name="student_id"/>
+                    <field name="student_fees"/>
+                    <field name="student_tution_fees"/>
+                    <field name="total_fees"/>
+                    <field name="fees_status" widget="badge" decoration-primary="fees_status=='paid'" decoration-danger="fees_status=='unpaid'"/>
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

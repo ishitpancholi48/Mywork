@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="action_college_university" model="ir.actions.act_window">
+            <field name="name">College_university</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">college.university</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_fave">
+                    Create New Record
+                </p>
+            </field>
+        </record>
+        <!--Tree view start-->
+        <record id="college_university_tree" model="ir.ui.view">
+            <field name="name">college.university.tree</field>
+            <field name="model">college.university</field>
+            <field name="arch" type="xml">
+                <tree string="College Student">
+                    <field name="studentname"/>
+                    <field name="age"/>
+                    <field name="dob"/>
+                    <field name="gender_student"/>
+                    <field name="mobile"/>
+                    <field name="email"/>
+                    <field name="city"/>
+                    <field name="state"/>
+                    <field name="diploma_field"/>
+                </tree>
+            </field>
+        </record>
+        <!--tree view end-->
+        <!--form view start-->
+        <record id="college_university_form" model="ir.ui.view">
+            <field name="name">college.university.form</field>
+            <field name="model">college.university</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button id="button_draft" name="action_draft" string="Draft" class="btn-primary"
+                                type="object"/>
+                        <button id="button_confirm" name="action_confirm" string="Confirm" class="btn-primary"
+                                type="object"/>
+                        <button id="button_done" name="action_done" string="Done" class="btn-primary"
+                                type="object" message="Record Saved"/>
+                        <button id="button_cancel" name="action_cancel" string="Cancel" class="btn-primary"
+                                type="object"/>
+                        <field name="state" widget="statusbar" options="{'clickable':'1'}"
+                               statusbar_visible="draft,done,confirm,cancel"/>
+                        <button id="button_record" name="test_record" string="Record Set" class="btn-primary"
+                                type="object"/>
+                        <button name="wiz_open" string="Update Info"
+                                type="object" title="College University Wizard  " class="oe_highlight"/>
+                        <button name="main_method" string="Set Record From Other Method"
+                                type="object" class="oe_highlight"/>
+                    </header>
+                    <sheet>
+                        <form>
+                            <group>
+                                <group>
+                                    <field name="studentname"/>
+                                    <field name="age"/>
+                                    <field name="dob"/>
+                                    <field name="gender_student"/>
+                                    <field name="city"/>
+                                </group>
+                                <group>
+                                    <field name="mobile"/>
+                                    <field name="email" widget="email"/>
+                                    <field name="diploma_field"/>
+                                </group>
+                            </group>
+                        </form>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!--from view end-->
+        <menuitem id="College_menu"
+                  name="College University"
+                  action="action_college_university"
+        />
+        <menuitem id="college_sub_menu"
+                  name="Data"
+                  action="action_college_university"
+                  parent="College_menu"
+        />
+        <menuitem id="student_data"
+                  name="Details"
+                  action="action_college_course"
+                  parent="college_sub_menu"
+        />
+    </data>
+</odoo>

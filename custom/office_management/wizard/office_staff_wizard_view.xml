@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="office_staff_wizard_view_form" model="ir.ui.view">
+            <field name="name">office.staff.wizard.form</field>
+            <field name="model">office.staff.wizard</field>
+            <field name="arch" type="xml">
+                <form string="College_University_Wizard">
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </group>
+                    <footer>
+                        <button name="update_info_funs" type="object" class="oe_highlight" string="Update"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="office_staff_wizard_action_id" model="ir.actions.act_window">
+            <field name="name">Office Staff Wizard</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">office.staff.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="office_management.office_staff_wizard_view_form"/>
+            <field name="target">new</field>
+        </record>
+
+    </data>
+</odoo>

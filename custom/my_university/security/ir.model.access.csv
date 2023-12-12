@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_college_university,college.university,model_college_university,base.group_user,1,1,1,1
+access_college_course,college.course,model_college_course,base.group_user,1,1,1,1
+
+
+access_college_university_wizard,college.university.wizard,model_college_university_wizard,base.group_user,1,1,1,1
+access_college_university_wizard_line,college.university.wizard.line,model_college_university_wizard_line,base.group_user,1,1,1,1
+

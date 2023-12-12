@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="menu_1" model="hotel.restaurant">
+            <field name="food_name">Malai Kofta</field>
+            <field name="food_price">120</field>
+        </record>
+        <record id="menu_2" model="hotel.restaurant">
+            <field name="food_name">Panner Bhurgi</field>
+            <field name="food_price">150</field>
+        </record>
+        <record id="menu_3" model="hotel.restaurant">
+            <field name="food_name">Aloo Muteer Panner</field>
+            <field name="food_price">140</field>
+        </record>
+        <record id="menu_4" model="hotel.restaurant">
+            <field name="food_name">Veg Panner</field>
+            <field name="food_price">110</field>
+        </record>
+        <record id="menu_5" model="hotel.restaurant">
+            <field name="food_name">Panner Handi</field>
+            <field name="food_price">160</field>
+        </record>
+        <record id="menu_6" model="hotel.restaurant">
+            <field name="food_name">Veg Handi</field>
+            <field name="food_price">130</field>
+        </record>
+        <record id="menu_7" model="hotel.restaurant">
+            <field name="food_name">Veg Angare</field>
+            <field name="food_price">170</field>
+        </record>
+        <record id="menu_8" model="hotel.restaurant">
+            <field name="food_name">Jeera Rice</field>
+            <field name="food_price">90</field>
+        </record>
+        <record id="menu_9" model="hotel.restaurant">
+            <field name="food_name">Daal Fry</field>
+            <field name="food_price">110</field>
+        </record>
+        <record id="menu_10" model="hotel.restaurant">
+            <field name="food_name">Butter Roti</field>
+            <field name="food_price">25</field>
+        </record>
+        <record id="menu_11" model="hotel.restaurant">
+            <field name="food_name">Plain Roti</field>
+            <field name="food_price">18</field>
+        </record>
+        <record id="menu_13" model="hotel.restaurant">
+            <field name="food_name">Butter Naan</field>
+            <field name="food_price">30</field>
+        </record>
+    </data>
+</odoo>

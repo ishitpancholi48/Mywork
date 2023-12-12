@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!--DEPARTMENT DEMO DATA -->
+        <record id="demo_data_course_21" model="academy.course">
+            <field name="course_name">MBA Master of Business Administration</field>
+            <field name="course_description">
+                An MBA is a graduate business degree focused on management, business, and entrepreneurship.
+            </field>
+        </record>
+
+        <record id="demo_data_course_22" model="academy.course">
+            <field name="course_name">MCA Master of Computer Application</field>
+            <field name="course_description">
+                The Master of Computer Application (MCA) is a professional post-graduate program. Students who take
+                admission in this course study computer programs, developing software, computer application development,
+                and many other topics in this course. The duration of this course is 2 years.
+            </field>
+        </record>
+
+        <record id="demo_data_course_23" model="academy.course">
+            <field name="course_name">B.COM Bachelor of Commerce</field>
+            <field name="course_description">
+                BCom is a three-year undergraduate degree that focuses on commerce, economics, business law,
+                accountancy, taxation, and financing.
+            </field>
+        </record>
+
+        <record id="demo_data_course_24" model="academy.course">
+            <field name="course_name">B.Ed Bachelor of Education</field>
+            <field name="course_description">
+                The Bachelor of Education (B.Ed.) degree is a professional program that educates teachers for upper
+                primary or intermediate level, secondary, and upper-secondary level.
+            </field>
+        </record>
+
+        <record id="demo_data_course_25" model="academy.course">
+            <field name="course_name">BCA Bachelor of Computer Applications</field>
+            <field name="course_description">
+                BCA is Bachelor's in Computer Application, which is a 3-year undergraduate degree programme that focuses
+                on knowledge of the basics of computer application and software development.
+            </field>
+        </record>
+
+        <record id="demo_data_course_26" model="academy.course">
+            <field name="course_name">BBA Bachelor of Business Administration.</field>
+            <field name="course_description">
+                A Bachelor of Business Administration (BBA) is a bachelor's degree that helps you establish a
+                fundamental understanding of business and how various aspects of it apply to the real world.
+            </field>
+        </record>
+
+        <record id="demo_data_course_27" model="academy.course">
+            <field name="course_name">M.COM Master of Commerce.</field>
+            <field name="course_description">
+                Master of Commerce (MCom or M Comm; sometimes Magister Commercii as (MagComm or Mag. comm.) is a
+                postgraduate master's degree focusing on commerce-, accounting-, management- and economics-related
+                subjects.
+            </field>
+        </record>
+    </data>
+</odoo>
+

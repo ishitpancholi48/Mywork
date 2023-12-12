@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="action_company_service" model="ir.actions.act_window">
+            <field name="name">Company_service</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">company.service</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_fave">
+                    Add query
+                </p>
+
+            </field>
+        </record>
+        <!-- tree view start-->
+        <record id="company_service_tree" model="ir.ui.view">
+            <field name="name">company.service.tree</field>
+            <field name="model">company.service</field>
+            <field name="arch" type="xml">
+                <tree string="Office Details">
+                    <field name="detail"/>
+                    <field name="query"/>
+                    <!--                    <field name="partner_ids"/>-->
+                </tree>
+            </field>
+        </record>
+        <!-- tree view end-->
+        <!--form view start-->
+        <record id="company_service_form" model="ir.ui.view">
+            <field name="name">company.service.form</field>
+            <field name="model">company.service</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="detail"/>
+                            <field name="query"/>
+                            <field name="many2many" widget="many2many_tags"/>
+                        </group>
+                        <notebook>
+                            <page string="Employee Detail">
+                                <field name="partner_ids" mode="tree">
+                                    <tree editable="bottom">
+                                        <field name="name"/>
+                                        <field name="partner_id"/>
+                                        <field name="age"/>
+                                        <field name="dob"/>
+                                        <field name="mobile"/>
+                                        <field name="email"/>
+                                        <field name="gender"/>
+                                        <field name="city"/>
+                                        <field name="boolean_checkbox"/>
+                                        <field name="state"/>
+                                        <field name="many2many"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!--form view end-->
+    </data>
+</odoo>

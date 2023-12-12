@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="action_hotel_customer_view" model="ir.actions.act_window">
+            <field name="name">Hotel Customer</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hotel.customer</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_fave">
+                    Create Customer Details
+                </p>
+            </field>
+        </record>
+        <!--form view-->
+        <record id="hotel_customer_form_view" model="ir.ui.view">
+            <field name="name">Customer Details Form</field>
+            <field name="model">hotel.customer</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="customer_name"/>
+                                <field name="customer_age"/>
+                                <field name="customer_gender"/>
+                            </group>
+                            <group>
+                                <field name="customer_mobile_number"/>
+                                <field name="customer_city"/>
+                                <field name="customer_verification_id"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Room Details" name="room details">
+                                <field name="customer_room_detail_ids">
+                                    <tree>
+                                        <field name="checkin"/>
+                                        <field name="checkout"/>
+                                        <field name="room_no"/>
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <field name="room_no"/>
+                                            <field name="checkin"/>
+                                            <field name="checkout"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+                            <page string="Payment Details" name="payment details">
+                                <field name="customer_payment_detail_ids">
+                                    <tree>
+                                        <field name="customer_payment"/>
+                                        <field name="payment_type"/>
+                                    </tree>
+                                    <form>
+                                        <group>
+                                            <field name="customer_payment"/>
+                                            <field name="payment_type"/>
+                                        </group>
+                                    </form>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!--Tree View-->
+        <record id="hotel_customer_tree_view" model="ir.ui.view">
+            <field name="name">hotel.customer.tree</field>
+            <field name="model">hotel.customer</field>
+            <field name="arch" type="xml">
+                <tree string="Customer Details">
+                    <field name="customer_name"/>
+                    <field name="customer_age"/>
+                    <field name="customer_gender"/>
+                    <field name="customer_mobile_number"/>
+                    <field name="customer_city"/>
+                    <field name="customer_verification_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <menuitem id="hotel_customer_menu"
+                  name="Hotel Management"
+                  action="action_hotel_customer_view"
+        />
+        <menuitem id="hotel_restaurant"
+                  name="Hotel Restaurant"
+                  parent="hotel_customer_menu"
+        />
+    </data>
+</odoo>

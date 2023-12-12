@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_student_record,student.record,model_student_record,base.group_user,1,1,1,1
+access_student_list,student.list,model_student_list,base.group_user,1,1,1,1
+access_student_fees,student.fees,model_student_fees,base.group_user,1,1,1,1
+access_school_faculty,school.faculty,model_school_faculty,base.group_user,1,1,1,1
+access_subject_tags,subject.tags,model_subject_tags,base.group_user,1,1,1,1
+access_student_fees_status,student.fees.status,model_student_fees_status,base.group_user,1,1,1,1

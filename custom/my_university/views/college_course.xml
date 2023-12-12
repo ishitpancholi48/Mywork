@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="action_college_course" model="ir.actions.act_window">
+            <field name="name">College Course</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">college.course</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_fave">
+                    Create New Record
+                </p>
+            </field>
+        </record>
+        <!--Tree view start-->
+        <record id="college_course_tree" model="ir.ui.view">
+            <field name="name">College Course Tree</field>
+            <field name="model">college.course</field>
+            <field name="arch" type="xml">
+                <tree string="College Student">
+                    <field name="student_data"/>
+                    <field name="student_stream"/>
+                </tree>
+            </field>
+        </record>
+        <!--tree view end-->
+
+        <!--form view start-->
+        <record id="college_course_form" model="ir.ui.view">
+            <field name="name">College Course Form</field>
+            <field name="model">college.course</field>
+            <field name="arch" type="xml">
+                <form>
+<!--                    <header>-->
+<!--                        <button id="button_draft" name="action_draft" string="Draft" class="btn-primary"-->
+<!--                                type="object"/>-->
+<!--                        <button id="button_confirm" name="action_confirm" string="Confirm" class="btn-primary"-->
+<!--                                type="object"/>-->
+<!--                        <button id="button_done" name="action_done" string="Done" class="btn-primary"-->
+<!--                                type="object" message="Record Saved"/>-->
+<!--                        <button id="button_cancel" name="action_cancel" string="Cancel" class="btn-secondary"-->
+<!--                                type="object"/>-->
+<!--                        <field name="state" widget="statusbar" options="{'clickable':'1'}"-->
+<!--                               statusbar_visible="draft,done,confirm,cancel"/>-->
+<!--                        <button id="button_method" name="confirm_detail" string="Show Detail" class="btn-primary"-->
+<!--                                type="object"/>-->
+<!--                    </header>-->
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="student_data"/>
+                            </group>
+                            <group>
+                                <field name="student_stream"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

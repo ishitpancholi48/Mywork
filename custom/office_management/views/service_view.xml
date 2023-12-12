@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="action_office_details" model="ir.actions.act_window">
+            <field name="name">Office_details</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">office.details</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_fave">
+                    Create New Record
+                </p>
+
+            </field>
+        </record>
+        <!-- tree view start-->
+        <record id="office_details_tree" model="ir.ui.view">
+            <field name="name">office.details.tree</field>
+            <field name="model">office.details</field>
+            <field name="arch" type="xml">
+                <tree string="Office Details">
+                    <field name="service"/>
+                    <field name="error_detail"/>
+                </tree>
+            </field>
+        </record>
+        <!-- tree view end-->
+        <!--form view start-->
+        <record id="office_details_form" model="ir.ui.view">
+            <field name="name">office.details.form</field>
+            <field name="model">office.details</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="service"/>
+                            <field name="error_detail"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!--form view end-->
+
+    </data>
+</odoo>

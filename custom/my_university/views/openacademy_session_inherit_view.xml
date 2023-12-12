@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="openacademy_session_inherit_view" model="ir.ui.view">
+            <field name="name">Openacademy Session</field>
+            <field name="model">academy.course</field>
+            <field name="inherit_id" ref="open_academy.academy_course_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/sheet/notebook/page[2]" position="after">
+                    <page string="University">
+                        <field name="college" mode="tree"/>
+
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

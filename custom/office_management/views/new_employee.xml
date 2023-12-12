@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="action_new_employee" model="ir.actions.act_window">
+            <field name="name">New_Employee</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">new.employee</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_fave">
+                    create new employee
+                </p>
+            </field>
+        </record>
+
+        <!--        tree view  -->
+        <record id="new_employee_tree" model="ir.ui.view">
+            <field name="name">new.employee.tree</field>
+            <field name="model">new.employee</field>
+            <field name="arch" type="xml">
+                <tree string="Office Details">
+                    <field name="employee_name"/>
+                    <field name="course_name"/>
+                    <field name="details"/>
+                    <field name="partner_ids"/>
+                    <field name="sale_order"/>
+                </tree>
+            </field>
+        </record>
+        <!-- tree view end-->
+
+        <!--        form view start-->
+        <record id="new_employee_form" model="ir.ui.view">
+            <field name="name">new.employee.form</field>
+            <field name="model">new.employee</field>
+            <field name="arch" type="xml">
+                <form>
+<!--                    <header>-->
+<!--                        <button name="method_a" type="object" string="Call Method"/>-->
+<!--                    </header>-->
+                    <sheet>
+                        <group>
+                            <field name="employee_name"/>
+                            <field name="course_name" domain="['|',('detail','=','python'),('detail','=','java')]"/>
+                            <field name="details"/>
+                            <field name="partner_ids"/>
+                            <field name="sale_order"/>
+                        </group>
+                        <notebook>
+                            <page string="Employee Detail">
+                                <field name="partner" mode="tree">
+                                    <tree editable="bottom">
+                                        <field name="name"/>
+                                        <field name="partner_id"/>
+                                        <field name="age"/>
+                                        <field name="dob"/>
+                                        <field name="mobile"/>
+                                        <field name="email"/>
+                                        <field name="gender"/>
+                                        <field name="city"/>
+                                        <field name="boolean_checkbox"/>
+                                        <field name="state"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!--        form view end-->
+    </data>
+</odoo>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="action_hotel_customer_order_view" model="ir.actions.act_window">
+            <field name="name">Customer Order</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hotel.customer.order</field>
+            <field name="help" type="html">
+                <p>
+                    Create Food Order
+                </p>
+            </field>
+        </record>
+        <!--form view-->
+        <record id="hotel_customer_order_form_view" model="ir.ui.view">
+            <field name="name">Hotel_Customer_Order</field>
+            <field name="model">hotel.customer.order</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="customer_name"/>
+                            <field name="food_menu" widget="many2many_tags"/>
+                            <field name="food_price"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!--tree view-->
+        <record id="hotel_customer_order_tree_view" model="ir.ui.view">
+            <field name="name">hotel.customer.order.tree</field>
+            <field name="model">hotel.customer.order</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="customer_name"/>
+                    <field name="food_menu" widget="many2many_tags"/>
+                    <field name="food_price"/>
+                </tree>
+            </field>
+        </record>
+        <menuitem id="hotel_customer_order"
+                  name=" Food Order"
+                  action="action_hotel_customer_order_view"
+                  parent="hotel_restaurant"
+        />
+    </data>
+</odoo>
