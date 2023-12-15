@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="action_shopify_instance_integration" model="ir.actions.act_window">
+            <field name="name">Shopify Instance</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">shopify.instance.integration</field>
+            <field name='view_mode'>kanban,tree,form</field>
+            <field name="help" type="html">
+                <p>
+                    Click For Shopify Instance
+                </p>
+            </field>
+        </record>
+        <!--form view-->
+        <record id="shopify_instance_integration_form" model="ir.ui.view">
+            <field name="name">shopify instance intigration form</field>
+            <field name="model">shopify.instance.integration</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button id="test_connection" name="action_test_connection" string="Test Connection"
+                                type="Object" class="btn-primary"/>
+                    </header>
+                    <sheet>
+                        <div name="button_box" position="inside">
+                            <button class="oe_stat_button" type="object" name="action_log" string="Logs"  icon="fa-bitbucket-square"/>
+                            <button class="oe_stat_button" type="object" name="action_products" string="Products"/>
+                            <button class="oe_stat_button" type="object" name="action_customers" string="Customers"/>
+                            <button class="oe_stat_button" type="object" name="action_orders" string="Orders" icon="fa-list-ul"/>
+                            <button class="oe_stat_button" type="object" name="action_queue" string="Queue"/>
+                            <button class="oe_stat_button" type="object" name="action_locations" string="Locations"/>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="active" widget="boolean_toggle"/>
+                                <field name="company_id"/>
+                                <field name="warehouse_id"/>
+                            </group>
+                            <group>
+                                <field name="shopify_url"/>
+                                <field name="shopify_api_key"/>
+                                <field name="shopify_pwd"/>
+                                <field name="shopify_secret_key"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+        <!-- tree view-->
+        <record id="shopify_instance_integration_tree" model="ir.ui.view">
+            <field name="name">shopify instance integration tree</field>
+            <field name="model">shopify.instance.integration</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="active"/>
+                    <field name="company_id"/>
+                    <field name="warehouse_id"/>
+                </tree>
+            </field>
+        </record>
+        <!--kanban view-->
+        <record id="shopify_instance_integration_kanban" model="ir.ui.view">
+            <field name="name">shopify.instance.integration.kanban</field>
+            <field name="model">shopify.instance.integration</field>
+            <field name="arch" type="html">
+                <kanban class="oe_background_grey o_kanban_dashboard o_account_kanban">
+                    <field name="name"/>
+                    <field name="active"/>
+                    <field name="company_id"/>
+                    <field name="warehouse_id"/>
+                    <field name="shopify_url"/>
+                    <field name="shopify_api_key"/>
+                    <field name="shopify_pwd"/>
+                    <field name="shopify_secret_key"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                                <div class="oe_kanban_details">
+                                    <ul>
+                                        <li>
+                                            Name:
+                                            <field name="name"/>
+                                        </li>
+                                        <li>
+                                            Active
+                                            <field name="active"/>
+                                        </li>
+                                        <li>
+                                            Company_ID:
+                                            <field name="company_id"/>
+                                        </li>
+                                        <li>
+                                            Warehouse_ID:
+                                            <field name="warehouse_id"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+        <menuitem id="shopify_instance_integration"
+                  name="Shopify"
+                  action="action_shopify_instance_integration"
+        />
+        <menuitem id="shopify_configuration_menu"
+                  name="Configuration"
+                  parent="shopify_instance_integration"
+        />
+
+        <record id="action_shopify_instance_integrations" model="ir.actions.act_window">
+            <field name="name">shopify configuration</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">shopify.instance.integration</field>
+            <field name='view_mode'>tree,form</field>
+            <field name="help" type="html">
+                <p>
+                    Click For Shopify Instance
+                </p>
+            </field>
+        </record>
+        <menuitem id="shopify_configuration_sub_menu"
+                  name="Instance"
+                  action="action_shopify_instance_integrations"
+                  parent="shopify_configuration_menu"/>
+    </data>
+</odoo>

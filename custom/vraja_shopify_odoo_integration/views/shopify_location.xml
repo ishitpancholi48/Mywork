@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="action_shopify_location" model="ir.actions.act_window">
+            <field name="name">Shopify Locations Data</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">shopify.location</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p>
+                    Shopify Locations
+                </p>
+            </field>
+        </record>
+
+        <!--form view-->
+        <record id="shopify_location_form" model="ir.ui.view">
+            <field name="name">shopify location form</field>
+            <field name="model">shopify.location</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="shopify_location_id"/>
+                                <field name="instance_id"/>
+                                <field name="company_id"/>
+                            </group>
+                            <group>
+                                <field name="warehouse_id"/>
+                                <field name="is_primary_location" widget="boolean_toggle"/>
+                                <field name="is_import_export_stock" widget="boolean_toggle"/>
+                                <field name="location_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!--tree view-->
+        <record id="shopify_location_tree" model="ir.ui.view">
+            <field name="name">shopify location tree</field>
+            <field name="model">shopify.location</field>
+            <field name="arch" type="xml">
+                <tree create="False">
+                    <field name="name"/>
+                    <field name="shopify_location_id"/>
+                    <field name="instance_id"/>
+                    <field name="company_id"/>
+                    <field name="warehouse_id"/>
+                </tree>
+            </field>
+        </record>
+        <menuitem id="shopify_location"
+                  name="Shopify Locations"
+                  action="action_shopify_location"
+                  parent="shopify_configuration_menu"/>
+
+    </data>
+</odoo>
