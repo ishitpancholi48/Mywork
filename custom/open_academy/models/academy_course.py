@@ -1,10 +1,9 @@
-from datetime import timedelta
 from odoo import models, fields, api, exceptions
-
+from datetime import timedelta
 
 class AcademyCourse(models.Model):
     _name = 'academy.course'
-    _description = ' OpenAcademy Course'
+    _description = ' Open Academy Course'
     _rec_name = 'course_name'
 
     course_name = fields.Char(string='Academy Course', help='Select Your Course')
@@ -24,6 +23,18 @@ class AcademyCourse(models.Model):
         default["course_name"] = new_name
         return super(AcademyCourse, self).copy(default)
 
+    def send_birthday_alert_email(self):
+        for employee in self.env['hr.employee'].search([('birthday', '!=', False)]):
+            if (employee.birthday - fields.Date.today()).days <= 7:
+                mail_value = {
+                    'email_to': 'odoo.demo.local@gmail.com',
+                    'subject': "Birthday Reminder for %s" % employee.name,
+                    'recipient_ids': [(6, 0, [66])],
+                    'body_html': "Reminder Email: Employee %s has upcoming birthday on %s"
+                }
+                mail = self.env['mail.mail'].sudo().create(mail_value)
+                mail.send()
+                print("Executed")
 
 class OpenAcademySession(models.Model):
     _name = 'openacademy.session'
@@ -49,26 +60,6 @@ class OpenAcademySession(models.Model):
 
 
 
-    def action_send_session_by_email_cron(self):
-        session_ids = self.env['openacademy.session'].search([('email_sent', '=', False)])
-        for session in session_ids:
-            if session.email_sent is False:
-                session.action_send_session_by_email()
-                session.email_sent = True
-
-
-    def action_send_session_by_email(self):
-        # for attendee in self.attendee_ids:
-        ctx = {}
-        email_list = self.attendee_ids.mapped('email')
-        if email_list:
-            ctx['email_to'] = ','.join([email for email in email_list if email])
-            ctx['email_from'] = self.env.user.company_id.email
-            ctx['send_email'] = True
-            ctx['attendee'] = ''
-            template = self.env.ref('openacademy.email_template_openacademy_session')
-            template.with_context(ctx).send_mail(self.id, force_send=True, raise_exception=False)
-
     @api.model
     def create(self, vals):
         res = super(OpenAcademySession, self).create(vals)
@@ -77,10 +68,9 @@ class OpenAcademySession(models.Model):
 
     def get_us_country(self):
         country = self.env['res.partner'].search([('country_id', '=', 'US')])
+        a= len(country)
         for rec in self:
             rec.attendee_ids = country
-
-
 
     @api.constrains('session_name')
     def session_name_validation(self):
@@ -109,22 +99,23 @@ class OpenAcademySession(models.Model):
             r.attendees_count = len(r.attendee_ids)
 
     # this function use for verify valid seats
-    # @api.onchange('seats', 'attendee_ids')
-    # def _verify_valid_seats(self):
-    #     if self.seats < 0:
-    #         return {
-    #             'warning': {
-    #                 'title': "Incorrect 'seats' value",
-    #                 'message': "The number of available seats may not be negative",
-    #             },
-    #         }
-    #     if self.seats < len(self.attendee_ids):
-    #         return {
-    #             'warning': {
-    #                 'title': "Too many attendees",
-    #                 'message': "Increase seats or remove excess attendees",
-    #             },
-    #         }
+    @api.onchange('seats', 'attendee_ids')
+    def _verify_valid_seats(self):
+        if self.seats < 0:
+            return {
+                'warning': {
+                    'title': "Incorrect 'seats' value",
+                    'message': "The number of available seats may not be negative",
+                },
+            }
+        if self.seats < len(self.attendee_ids):
+            return {
+                'warning': {
+                    'title': "Too many attendees",
+                    'message': "Increase seats or remove excess attendees",
+                },
+            }
+
 
     @api.depends('start_date', 'duration')
     def _get_end_date(self):

@@ -1,9 +1,6 @@
 from odoo import models, fields
 
 
-
-
-
 class HotelRestaurantOrder(models.Model):
     _name = 'hotel.customer.order'
     _description = 'Hotel Restaurant Order'

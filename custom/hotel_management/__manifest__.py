@@ -17,6 +17,7 @@
         'views/hotel_customer_view.xml',
         'views/hotel_restaurant_view.xml',
         'views/hotel_customer_order_view.xml',
+        'views/hotel_laundary_view.xml',
         'data/demo_data_hotel_restaurant.xml',
 
     ],

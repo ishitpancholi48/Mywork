@@ -4,3 +4,4 @@ access_customer_room_detail_lines,customer.room.detail.lines,model_customer_room
 access_hostel_restaurant,hotel.restaurant,model_hotel_restaurant,base.group_user,1,1,1,1
 access_hotel_customer_order,hotel.customer.order,model_hotel_customer_order,base.group_user,1,1,1,1
 access_payment_detail_lines,payment.detail.lines,model_payment_detail_lines,base.group_user,1,1,1,1
+access_hotel_laundary,hotel.laundary,model_hotel_laundary,base.group_user,1,1,1,1

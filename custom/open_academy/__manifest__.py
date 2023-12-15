@@ -13,9 +13,7 @@
     'data': [
         'security/ir.model.access.csv',
         'security/security.xml',
-        # 'data/ir_cron.xml',
-        # 'data/email_template.xml',
-        #'data/demo_data_course.xml',
+        'data/ir_cron.xml',
         'wizard/open_academy_wizard_view.xml',
         'views/academy_course_view.xml',
         'views/res_partner_view.xml',

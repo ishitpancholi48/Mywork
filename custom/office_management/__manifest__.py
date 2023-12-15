@@ -5,7 +5,7 @@
     'version': '16.0',
     'summary': """ Managments are made up here""",
     'description': """ Module is for managing office """,
-    'depends': ["sale"],
+    'depends': ["sale","purchase"],
 
     'data': ['security/ir.model.access.csv',
              'views/management_view.xml',

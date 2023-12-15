@@ -9,3 +9,5 @@ class HotelRestaurant(models.Model):
 
     food_name = fields.Char(string='Food Item')
     food_price = fields.Integer(string='Price')
+
+

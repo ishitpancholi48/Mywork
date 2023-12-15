@@ -91,5 +91,9 @@
                   name="Hotel Restaurant"
                   parent="hotel_customer_menu"
         />
+        <menuitem id="hotel_service"
+                  name="Hotel Service"
+                  parent="hotel_customer_menu"
+        />
     </data>
 </odoo>

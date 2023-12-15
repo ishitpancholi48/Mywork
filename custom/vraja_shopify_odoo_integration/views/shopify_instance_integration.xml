@@ -24,10 +24,12 @@
                     </header>
                     <sheet>
                         <div name="button_box" position="inside">
-                            <button class="oe_stat_button" type="object" name="action_log" string="Logs"  icon="fa-bitbucket-square"/>
+                            <button class="oe_stat_button" type="object" name="action_log" string="Logs"
+                                    icon="fa-bitbucket-square"/>
                             <button class="oe_stat_button" type="object" name="action_products" string="Products"/>
                             <button class="oe_stat_button" type="object" name="action_customers" string="Customers"/>
-                            <button class="oe_stat_button" type="object" name="action_orders" string="Orders" icon="fa-list-ul"/>
+                            <button class="oe_stat_button" type="object" name="action_orders" string="Orders"
+                                    icon="fa-list-ul"/>
                             <button class="oe_stat_button" type="object" name="action_queue" string="Queue"/>
                             <button class="oe_stat_button" type="object" name="action_locations" string="Locations"/>
                         </div>
@@ -47,9 +49,9 @@
                         </group>
                     </sheet>
                     <div class="oe_chatter">
-                        <field name="message_follower_ids"/>
-                        <field name="activity_ids"/>
-                        <field name="message_ids"/>
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
                     </div>
                 </form>
             </field>
@@ -136,3 +138,4 @@
                   parent="shopify_configuration_menu"/>
     </data>
 </odoo>
+

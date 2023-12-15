@@ -26,3 +26,6 @@ class ShopifyFinancialStatusConfiguration(models.Model):
         ('refunded', 'The finances have been refunded'),
         ('voided', 'The finances have been voided')
     ], string='Financial Status', help='select financial status', copy=False, tracking=True)
+
+
+

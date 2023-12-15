@@ -6,7 +6,7 @@
     'summary': """ Management are made up of Shopify to Odoo Connector""",
     'description': """ 
             """,
-    'depends': ['base','mail','stock','account'],
+    'depends': ['base','stock','account'],
     'data': [
         'security/ir.model.access.csv',
         'views/shopify_instance_integration.xml',

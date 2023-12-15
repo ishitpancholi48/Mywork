@@ -1,1 +1,48 @@
-_
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_hotel_laundary_view" model="ir.actions.act_window">
+            <field name="name">Hotel Laundary</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hotel.laundary</field>
+            <field name="help" type="html">
+                <p>
+                    Hotel Laundary
+                </p>
+            </field>
+        </record>
+        <!--form view-->
+        <record id="hotel_laundary_form_view" model="ir.ui.view">
+            <field name="name">hotel.laundary.tree.view</field>
+            <field name="model">hotel.laundary</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="customer_id"/>
+                            <field name="cloth_type"/>
+                            <field name="price"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!--tree view-->
+        <record id="hotel_laundary_tree_view" model="ir.ui.view">
+            <field name="name">hotel.laundary.tree.view</field>
+            <field name="model">hotel.laundary</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="customer_id"/>
+                    <field name="cloth_type"/>
+                    <field name="price"/>
+                </tree>
+            </field>
+        </record>
+        <menuitem id="hotel_laundary"
+                  name="Laundary"
+                  action="action_hotel_laundary_view"
+                  parent="hotel_service"
+        />
+    </data>
+</odoo>

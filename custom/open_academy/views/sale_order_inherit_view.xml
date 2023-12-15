@@ -8,14 +8,14 @@
             <field name="arch" type="xml">
                 <xpath expr="//page[@name='customer_signature']" position="after">
                     <page string="Open Academy">
-                        <group>
-                            <field name="course_id"/>
-                            <field name="course_description"/>
-                        </group>
-
+                        <form>
+                            <group>
+                                <field name="course_id"/>
+                                <field name="course_description"/>
+                            </group>
+                        </form>
                     </page>
                 </xpath>
-
             </field>
         </record>
     </data>
